@@ -1,5 +1,5 @@
 // Configuração do Título Principal
-const textPart1 = "KAIO";
+const textPart1 = "KAIO "; // Espaço incluído aqui para evitar bugs
 const textPart2 = "CÉSAR";
 let indexTitle = 0;
 
@@ -23,22 +23,23 @@ function typeMainTitle() {
     const p2 = document.getElementById('title-part2');
     const cursorTitle = document.getElementById('cursor-title');
 
+    // Trava de segurança para garantir que o elemento existe na tela
+    if (!p1 || !p2) return;
+
     if (indexTitle < textPart1.length) {
-        p1.innerHTML += textPart1.charAt(indexTitle);
-        indexTitle++;
-        setTimeout(typeMainTitle, 150); // Velocidade da letra
-    } else if (indexTitle === textPart1.length) {
-        p1.innerHTML += "&nbsp;"; // Adiciona o espaço
+        // Digita a parte branca
+        p1.textContent += textPart1.charAt(indexTitle);
         indexTitle++;
         setTimeout(typeMainTitle, 150);
-    } else if (indexTitle <= textPart1.length + textPart2.length) {
-        let idx2 = indexTitle - textPart1.length - 1;
-        p2.innerHTML += textPart2.charAt(idx2);
+    } else if (indexTitle < textPart1.length + textPart2.length) {
+        // Digita a parte neon
+        let idx2 = indexTitle - textPart1.length;
+        p2.textContent += textPart2.charAt(idx2);
         indexTitle++;
         setTimeout(typeMainTitle, 150);
     } else {
-        // Quando terminar de digitar o nome, esconde o cursor de cima e inicia o de baixo
-        cursorTitle.style.display = 'none';
+        // Esconde o cursor principal e inicia o subtítulo
+        if (cursorTitle) cursorTitle.style.display = 'none';
         setTimeout(loopSubtitle, 500);
     }
 }
@@ -46,7 +47,11 @@ function typeMainTitle() {
 // 2. Função que digita os subtítulos
 function loopSubtitle() {
     isEnd = false;
-    document.getElementById('typing-text').innerHTML = currentPhrase.join('') + "<span class='cursor'>_</span>";
+    const typingText = document.getElementById('typing-text');
+    
+    if (!typingText) return;
+
+    typingText.innerHTML = currentPhrase.join('') + "<span class='cursor'>_</span>";
 
     if (i < phrases.length) {
         if (!isDeleting && j <= phrases[i].length) {
@@ -79,16 +84,10 @@ function loopSubtitle() {
     setTimeout(loopSubtitle, time);
 }
 
-// Inicia todo o processo assim que a página carregar
-document.addEventListener("DOMContentLoaded", () => {
+// Inicia apenas quando a página carregar por completo (evita bugs no mobile)
+window.onload = () => {
+    // Garante que o texto esteja zerado ao recarregar a página
+    document.getElementById('title-part1').textContent = "";
+    document.getElementById('title-part2').textContent = "";
     typeMainTitle();
-});
-
-// CSS gerado dinamicamente para o cursor piscar
-const style = document.createElement('style');
-style.innerHTML = `
-    .cursor { animation: blink 1s step-end infinite; color: var(--neon-blue); }
-    #cursor-title { color: var(--neon-pink); }
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-`;
-document.head.appendChild(style);
+};
