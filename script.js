@@ -5,10 +5,10 @@ let indexTitle = 0;
 
 // Frases do subtítulo rotativo
 const phrases = [
-    "Desenvolvedor Mobile Web",
-    "Especialista em Interfaces JS",
-    "Focado em Mobile-First",
-    "Pronto para codar."
+    "Desenvolvedor Mobile Web ",
+    "Especialista em Interfaces JS ",
+    "Focado em Mobile-First ",
+    "Pronto para codar "
 ];
 
 let i = 0;
