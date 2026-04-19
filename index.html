@@ -3,120 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kaio César | Portfólio Gamer</title>
+    <title>Portfólio de Kaio César | Desenvolvedor Mobile We</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-
-    <div class="scanlines"></div>
-
-    <nav class="navbar">
-        <div class="logo">KAIO<span>CÉSAR</span></div>
-        <ul class="nav-links">
-            <li><a href="#home"><i class="fas fa-home"></i> Início</a></li>
-            <li><a href="#inventory"><i class="fas fa-box"></i> Projetos</a></li>
-            <li><a href="#stats"><i class="fas fa-chart-bar"></i> Stats</a></li>
-        </ul>
-    </nav>
-
-    <header id="home" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h2 class="pre-title">System.Ready(Player_1)</h2>
-            <h1 class="glitch" data-text="KAIO CÉSAR">KAIO CÉSAR</h1>
-            <p id="typing-text"></p>
-            <div class="hero-btns">
-                <a href="#inventory" class="btn-gamer primary">VER INVENTÁRIO</a>
-                <a href="#stats" class="btn-gamer secondary">SKILL TREE</a>
-            </div>
+    <header>
+        <div class="system-status">
+            <span>10:16</span>
+            <span class="status-icons">
+                <i class="icon-signal">📶</i>
+                <i class="icon-wifi">WIFI</i>
+                <i class="icon-battery">85</i>
+            </span>
+        </div>
+        <div class="logo">
+            <span class="kaio">KAIO</span><span class="cesar-neon">CÉSAR</span>
         </div>
     </header>
-
-    <section id="inventory" class="section">
-        <div class="container">
-            <h2 class="section-title"><i class="fas fa-terminal"></i> Missões Concluídas</h2>
-            <div class="grid-projects">
-                
-                <div class="card-gamer">
-                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=600');">
-                        <div class="card-badge">HARDWARE</div>
-                    </div>
-                    <div class="card-body">
-                        <h3>RK Tech: OS System</h3>
-                        <p>Gestão de ordens de serviço com cadastro de clientes e disparo automático de notificações via WhatsApp.</p>
-                        <div class="tech-tags">
-                            <span>JS</span><span>API</span><span>HTML/CSS</span>
-                        </div>
-                        <a href="https://github.com/kaioc-dev/OS-assistencia" target="_blank" class="btn-action">CÓDIGO FONTE <i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-
-                <div class="card-gamer">
-                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?auto=format&fit=crop&q=80&w=600');">
-                        <div class="card-badge">ARCADE GAME</div>
-                    </div>
-                    <div class="card-body">
-                        <h3>Asteroids</h3>
-                        <p>Recriação clássica focada em lógica de colisão, física 2D e renderização gráfica fluida.</p>
-                        <div class="tech-tags">
-                            <span>Game Loop</span><span>Canvas</span><span>JS</span>
-                        </div>
-                        <a href="https://github.com/kaioc-dev/Asteroids" target="_blank" class="btn-action">CÓDIGO FONTE <i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-
-                <div class="card-gamer">
-                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1495364141860-b0d03eccd065?auto=format&fit=crop&q=80&w=600');">
-                        <div class="card-badge">FOCUS</div>
-                    </div>
-                    <div class="card-body">
-                        <h3>Sci-Fi Timer</h3>
-                        <p>Cronômetro Pomodoro com interface futurista e funções de ajuste manual de tempo configuráveis.</p>
-                        <div class="tech-tags">
-                            <span>UI/UX</span><span>JS Timers</span>
-                        </div>
-                        <a href="https://github.com/kaioc-dev/Pomodoro/blob/main/index.html" target="_blank" class="btn-action">CÓDIGO FONTE <i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-
+    
+    <main class="hero">
+        <div class="hero-content">
+            <p class="ready-text">System.Ready(Player_1)</p>
+            <h1 class="main-title">
+                <span class="kaio">KAIO</span><span class="cesar-neon">CÉSAR</span>
+            </h1>
+            <p id="typing-subtitutle"></p>
+            
+            <button class="inventory-button">VER INVENTÁRIO</button>
+            
+            <div class="main-nav">
+                <p class="skill-tree">SKILL TREE</p>
             </div>
         </div>
-    </section>
-
-    <section id="stats" class="section stats-bg">
-        <div class="container">
-            <h2 class="section-title">Atributos do Player</h2>
-            <div class="skill-tree">
-                <div class="skill-item">
-                    <span>FRONTEND [HTML/CSS]</span>
-                    <div class="bar-container"><div class="bar-fill" style="width: 90%;"></div></div>
-                </div>
-                <div class="skill-item">
-                    <span>LOGIC [JAVASCRIPT]</span>
-                    <div class="bar-container"><div class="bar-fill" style="width: 85%;"></div></div>
-                </div>
-                <div class="skill-item">
-                    <span>MOBILE [WEB APP DEPLOY]</span>
-                    <div class="bar-container"><div class="bar-fill" style="width: 80%;"></div></div>
-                </div>
+        
+        <div class="phone-skin">
+            <div class="phone-screen">
+                <img src="crt_computer_fundo.png" alt="Pré-visualização da interface">
             </div>
         </div>
-    </section>
-
-    <footer class="footer-gamer">
-        <div class="footer-content">
-            <p>Connect with the host:</p>
-            <div class="social-icons">
-                <a href="https://github.com/kaioc-dev" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-whatsapp"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-            </div>
-            <p class="copy">© 2026 KAIO CÉSAR // ALL RIGHTS RESERVED</p>
-        </div>
+    </main>
+    
+    <footer>
+        <nav class="system-nav">
+            <button class="nav-icon-share">🔗</button>
+            <button class="nav-icon-edit">✏️</button>
+            <button class="nav-icon-search">🔍</button>
+            <button class="nav-icon-menu">☰</button>
+        </nav>
     </footer>
-
+    
     <script src="script.js"></script>
 </body>
 </html>
