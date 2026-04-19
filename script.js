@@ -1,8 +1,7 @@
-// Frases para o efeito de digitação
 const phrases = [
     "Desenvolvedor Mobile Web",
-    "Criador do RK Tech",
     "Especialista em Interfaces JS",
+    "Focado em Mobile-First",
     "Pronto para codar."
 ];
 
@@ -23,7 +22,7 @@ function loop() {
         }
 
         if (isDeleting && j <= phrases[i].length) {
-            currentPhrase.pop(phrases[i][j]);
+            currentPhrase.pop();
             j--;
         }
 
@@ -47,20 +46,13 @@ function loop() {
     setTimeout(loop, time);
 }
 
-// Inicia o efeito de digitação assim que a página carregar
 document.addEventListener("DOMContentLoaded", () => {
     loop();
 });
 
-// Adiciona CSS para o cursor piscar
 const style = document.createElement('style');
 style.innerHTML = `
-    .cursor {
-        animation: blink 1s step-end infinite;
-    }
-    @keyframes blink {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0; }
-    }
+    .cursor { animation: blink 1s step-end infinite; }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 `;
 document.head.appendChild(style);
