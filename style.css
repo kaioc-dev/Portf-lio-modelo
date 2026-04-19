@@ -65,12 +65,63 @@ body {
 .white-text { color: #ffffff; }
 .neon-text { color: var(--neon-pink); text-shadow: 0 0 15px var(--neon-pink), 0 0 30px var(--neon-pink); }
 
-#typing-text { font-size: 1.2rem; color: var(--neon-blue); min-height: 25px; margin-bottom: 20px; }
-
-/* Animação do Cursor nativa em CSS */
 .cursor { animation: blink 1s step-end infinite; color: var(--neon-blue); }
 #cursor-title { color: var(--neon-pink); }
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+/* --- NOVO EFEITO GLITCH NO SUBTÍTULO --- */
+.subtitle-wrapper { min-height: 35px; margin-bottom: 20px; }
+.glitch-subtitle {
+    font-size: 1.2rem;
+    color: var(--neon-blue);
+    position: relative;
+    display: inline-block;
+    transition: opacity 0.5s ease;
+}
+
+.glitch-subtitle::before,
+.glitch-subtitle::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+
+.glitch-subtitle::before {
+    left: 2px;
+    text-shadow: -1px 0 var(--neon-pink);
+    clip-path: inset(10% 0 60% 0);
+    animation: glitch-anim-1 2.5s infinite linear alternate-reverse;
+}
+
+.glitch-subtitle::after {
+    left: -2px;
+    text-shadow: 1px 0 var(--neon-green);
+    clip-path: inset(60% 0 10% 0);
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim-1 {
+    0% { clip-path: inset(20% 0 80% 0); transform: translate(-1px, 1px); }
+    20% { clip-path: inset(60% 0 10% 0); transform: translate(1px, -1px); }
+    40% { clip-path: inset(40% 0 50% 0); transform: translate(1px, 1px); }
+    60% { clip-path: inset(80% 0 5% 0); transform: translate(-1px, -1px); }
+    80% { clip-path: inset(10% 0 70% 0); transform: translate(1px, 1px); }
+    100% { clip-path: inset(30% 0 50% 0); transform: translate(-1px, -1px); }
+}
+
+@keyframes glitch-anim-2 {
+    0% { clip-path: inset(10% 0 60% 0); transform: translate(1px, -1px); }
+    20% { clip-path: inset(30% 0 20% 0); transform: translate(-1px, 1px); }
+    40% { clip-path: inset(70% 0 10% 0); transform: translate(1px, -1px); }
+    60% { clip-path: inset(20% 0 50% 0); transform: translate(-1px, 1px); }
+    80% { clip-path: inset(50% 0 30% 0); transform: translate(1px, 1px); }
+    100% { clip-path: inset(5% 0 80% 0); transform: translate(-1px, -1px); }
+}
+/* -------------------------------------- */
 
 .btn-gamer { padding: 15px 25px; margin: 10px; display: inline-block; text-decoration: none; font-family: var(--font-gamer); font-size: 0.8rem; clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%); transition: 0.3s; }
 .primary { background: var(--neon-blue); color: var(--bg); box-shadow: 0 0 15px var(--neon-blue); }
